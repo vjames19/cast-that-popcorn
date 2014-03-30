@@ -19,7 +19,14 @@
     <script type="text/javascript" src="scripts/cast_sender.js"></script>
     <script src="scripts/helloVideos.js"></script>
 
-        <!-- build:js(app) scripts/vendor.js -->
+  </head>
+  <body ng-app="castThatPopcornApp">
+
+    <!-- Add your site or application content here -->
+    <div class="container" ng-view=""></div>
+
+
+            <!-- build:js(app) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -42,14 +49,5 @@
         <script type="text/javascript" src="scripts/controllers/navbar.js"></script>
         <script type="text/javascript" src="scripts/services/torrents.js"></script>
         <!-- endbuild -->
-
-  </head>
-  <body ng-app="castThatPopcornApp">
-
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
-
-
-
 </body>
 </html>

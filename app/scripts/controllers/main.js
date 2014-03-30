@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('castThatPopcornApp')
-.controller('MainCtrl', function ($scope, $modal, $interval, $location, Torrents, RottenTomatoes) {
+.controller('MainCtrl', function ($scope, $modal, $interval, $timeout, $location, Torrents, RottenTomatoes) {
   $scope.user = {};
 
   $scope.ratings = {};
@@ -12,7 +12,7 @@ angular.module('castThatPopcornApp')
       if(!gotRatings) {
         gotRatings = true;
         $scope.casts.forEach(function(cast, index) {
-          $interval(function() {
+          $timeout(function() {
             RottenTomatoes.getRatingFor(cast.name).then(function(ratings) {
               if(!ratings.data.critics_score) {
                 $scope.ratings[cast.hash] = {critics_score: -1};
@@ -20,7 +20,7 @@ angular.module('castThatPopcornApp')
                 $scope.ratings[cast.hash] = ratings.data;
               }
             });
-          }, index * 1000);
+          }, index * 600);
         });
       }
       return torrents;
@@ -78,7 +78,9 @@ angular.module('castThatPopcornApp')
     $scope.selectedFile;
     $scope.ok = function () {
       upload();
+      gotRatings = false;
       $modalInstance.close();
+
     };
 
     $scope.cancel = function () {
