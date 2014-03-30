@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "Cast that popcorn",
+  "description": "Cast your popcorn!",
+  "version": "1.0",
+
+  "permissions": [
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+}
