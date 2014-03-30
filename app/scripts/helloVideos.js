@@ -79,7 +79,7 @@ function onSuccess(message) {
 function onStopAppSuccess() {
   console.log('Session stopped');
   appendMessage('Session stopped');
-  document.getElementById("casticon").src = 'images/cast_icon_idle.png';
+  // document.getElementById("casticon").src = 'images/cast_icon_idle.png';
 }
 
 /**
@@ -108,7 +108,7 @@ function sessionUpdateListener(isAlive) {
   appendMessage(message);
   if (!isAlive) {
     session = null;
-    document.getElementById("casticon").src = 'images/cast_icon_idle.png';
+    // document.getElementById("casticon").src = 'images/cast_icon_idle.png';
     var playpauseresume = document.getElementById("playpauseresume");
     playpauseresume.innerHTML = 'Play';
     if( timer ) {
@@ -144,7 +144,7 @@ function selectMedia(m) {
   appendMessage("media selected" + m);
   currentMediaURL = mediaURLs[m];
   var playpauseresume = document.getElementById("playpauseresume");
-  document.getElementById('thumb').src = mediaThumbs[m];
+  // document.getElementById('thumb').src = mediaThumbs[m];
 }
 
 /**
@@ -177,7 +177,7 @@ function onRequestSessionSuccess(e) {
   console.log("session success: " + e.sessionId);
   appendMessage("session success: " + e.sessionId);
   session = e;
-  document.getElementById("casticon").src = 'images/cast_icon_active.png';
+  // document.getElementById("casticon").src = 'images/cast_icon_active.png';
   session.addUpdateListener(sessionUpdateListener.bind(this));
   if (session.media.length != 0) {
     onMediaDiscovered('onRequestSession', session.media[0]);
@@ -274,11 +274,11 @@ function onMediaError(e) {
  */
 function onMediaStatusUpdate(isAlive) {
   if( progressFlag ) {
-    document.getElementById("progress").value = parseInt(100 * currentMedia.currentTime / currentMedia.media.duration);
-    document.getElementById("progress_tick").innerHTML = currentMedia.currentTime;
-    document.getElementById("duration").innerHTML = currentMedia.media.duration;
+    // document.getElementById("progress").value = parseInt(100 * currentMedia.currentTime / currentMedia.media.duration);
+    // document.getElementById("progress_tick").innerHTML = currentMedia.currentTime;
+    // document.getElementById("duration").innerHTML = currentMedia.media.duration;
   }
-  document.getElementById("playerstate").innerHTML = currentMedia.playerState;
+  // document.getElementById("playerstate").innerHTML = currentMedia.playerState;
 }
 
 /**
@@ -291,12 +291,12 @@ function updateCurrentTime() {
 
   if (currentMedia.media && currentMedia.media.duration != null) {
     var cTime = currentMedia.getEstimatedTime();
-    document.getElementById("progress").value = parseInt(100 * cTime / currentMedia.media.duration);
-    document.getElementById("progress_tick").innerHTML = cTime;
+    // document.getElementById("progress").value = parseInt(100 * cTime / currentMedia.media.duration);
+    // document.getElementById("progress_tick").innerHTML = cTime;
   }
   else {
-    document.getElementById("progress").value = 0;
-    document.getElementById("progress_tick").innerHTML = 0;
+    // document.getElementById("progress").value = 0;
+    // document.getElementById("progress_tick").innerHTML = 0;
     if( timer ) {
       clearInterval(timer);
     }
@@ -410,13 +410,13 @@ function setReceiverVolume(level, mute) {
  */
 function muteMedia(cb) {
   if( cb.checked == true ) {
-    document.getElementById('muteText').innerHTML = 'Unmute media';
+    // document.getElementById('muteText').innerHTML = 'Unmute media';
     //setMediaVolume(currentVolume, true);
     setReceiverVolume(currentVolume, true);
     appendMessage("media muted");
   }
   else {
-    document.getElementById('muteText').innerHTML = 'Mute media';
+    // document.getElementById('muteText').innerHTML = 'Mute media';
     //setMediaVolume(currentVolume, false);
     setReceiverVolume(currentVolume, false);
     appendMessage("media unmuted");
