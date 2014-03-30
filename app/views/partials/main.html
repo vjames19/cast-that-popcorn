@@ -56,9 +56,9 @@
         <table class="table table-striped">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Progress</th>
-            <th>Cast it</th>
+            <th class="col-md-4">Name</th>
+            <th class="col-md-4">Progress</th>
+            <th class="col-md-4">Cast it</th>
           </tr>
         </thead>
         <tbody>
@@ -66,10 +66,8 @@
             <td>{{ cast.name }}</td>
             <td><progressbar class="progress-striped active" max="cast.size" value="cast.completed" type="success" animate="false"></progressbar</td>
             <td>
-              <div style="text-align: center">
-                <!-- <button class="btn btn-success btn-lg" ng-click="setMediaUrl(cast.hash)"><i class="fa fa-expand fa-lg"></i></button> -->
-                <button class="btn btn-default" ng-click="setMediaUrl(cast.hash)"><img src="http://cdn.androidpolice.com/wp-content/uploads/2013/08/nexusae0_chromecast-icon.png" class="cast"/></button>
-                <!-- <img src="http://cdn.androidpolice.com/wp-content/uploads/2013/08/nexusae0_chromecast-icon.png" class="img-responsive custom-cursor" style="width: 35%; height: 35%;"alt="" ng-click="setMediaUrl(cast.hash)"> -->
+              <div style="text-align: center;">
+                <a class="custom-pointer" ng-click="setMediaUrl(cast.hash)"><img src="http://cdn.androidpolice.com/wp-content/uploads/2013/08/nexusae0_chromecast-icon.png" class="cast"/></button>
               </div>
           </td>
           </tr>

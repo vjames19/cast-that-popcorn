@@ -81,3 +81,7 @@ body {
 .cast {
   width: 35%;
 }
+
+.custom-pointer {
+  cursor: pointer;
+}
