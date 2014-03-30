@@ -1,47 +1,47 @@
 <div ng-include="'partials/navbar'"></div>
 <div class="row">
- <div class="col-md-6">
-   <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Media Player</h3>
-    </div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-md-6"><button onclick="launchApp()" class="btn btn-primary btn-lg btn-block">Launch app</button></div>
-        <div class="col-md-6"><button onclick="stopApp()" class="btn btn-primary btn-lg btn-block">Stop app</button></div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Media Player</h3>
       </div>
-      <br>
-      <div class="row">
-        <div class="col-md-6"><button id="playpauseresume" onclick="playMedia()" class="btn btn-success btn-lg btn-block"><i class="fa fa-play"></i></button></div>
-        <div class="col-md-6"><button onclick="stopMedia()" class="btn btn-danger btn-lg btn-block"><i class="fa fa-stop"></i></button></div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6"><button onclick="launchApp()" class="btn btn-primary btn-lg btn-block">Launch app</button></div>
+          <div class="col-md-6"><button onclick="stopApp()" class="btn btn-primary btn-lg btn-block">Stop app</button></div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6"><button id="playpauseresume" onclick="playMedia()" class="btn btn-success btn-lg btn-block"><i class="fa fa-play"></i></button></div>
+          <div class="col-md-6"><button onclick="stopMedia()" class="btn btn-danger btn-lg btn-block"><i class="fa fa-stop"></i></button></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="col-md-6">
-  <div class="panel panel-default">
-    <div class="panel-heading" >
-      <h3 class="panel-title">Enter your BOX Credentials</h3>
-    </div>
-    <div class="panel-body">
-      <form role="form" ng-submit="getTorrents()">
-        <div class="form-group">
-          <!-- <label for="username" class="col-sm-2 control-label">Email</label> -->
-          <input type="text" class="form-control" id="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-          <!-- <label for="password" class="col-sm-2 control-label">Password</label> -->
-          <input type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-          <!-- <label for="url" class="col-sm-2 control-label">Box Url</label> -->
-          <input type="url" class="form-control" id="url" placeholder="Box url">
-        </div>
-        <button type="submit" class="btn btn-info btn-lg btn-block">Get them Casts</button>
-      </form>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h3 class="panel-title">Enter your BOX Credentials</h3>
+      </div>
+      <div class="panel-body">
+        <form role="form" ng-submit="getTorrents()">
+          <div class="form-group">
+            <!-- <label for="username" class="col-sm-2 control-label">Email</label> -->
+            <input type="text" class="form-control" id="username" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <!-- <label for="password" class="col-sm-2 control-label">Password</label> -->
+            <input type="password" class="form-control" id="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <!-- <label for="url" class="col-sm-2 control-label">Box Url</label> -->
+            <input type="url" class="form-control" id="url" placeholder="Box url">
+          </div>
+          <button type="submit" class="btn btn-info btn-lg btn-block">Get them Casts</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </div>
 <div class="row">
   <div class="col-md-12">
@@ -65,8 +65,8 @@
           <tbody>
             <tr ng-repeat="cast in casts">
               <td><h5>{{ cast.name }}</h5></td>
-              <td>{{ getCriticScore(cast.hash) }}<img class="tomatoe" ng-src="images/{{getTomatoeImage(cast.hash)}}.png" ng-show="ratings[cast.hash].critics_score > -1" alt=""></td>
-              <td><progressbar class="progress" max="cast.size" value="cast.completed" type="success" animate="false"></progressbar</td>
+              <td>{{ getCriticScore(cast.hash) }}<img class="tomatoe" ng-src="images/{{getTomatoeImage(cast.hash)}}.png" ng-show="ratings[cast.hash].critics_score > -1" alt="" /></td>
+              <td><progressbar class="progress" max="cast.size" value="cast.completed" type="success" animate="false"></progressbar></td>
               <td>
                 <div style="text-align: center;">
                   <a class="custom-pointer" ng-click="setMediaUrl(cast.hash)"><img src="http://cdn.androidpolice.com/wp-content/uploads/2013/08/nexusae0_chromecast-icon.png" class="cast"/></a>
