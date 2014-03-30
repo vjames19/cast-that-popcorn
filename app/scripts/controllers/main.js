@@ -3,23 +3,26 @@
 angular.module('castThatPopcornApp')
 .controller('MainCtrl', function ($scope, $modal, $interval, $location, Torrents) {
   $scope.user = {};
-  // $interval(function() {
-  //   Torrents.getTorrents().then(function(torrents) {
-  //     console.log('refreshing');
-  //     $scope.casts = torrents.data;
-  //   });
-  // }, 5000);
 
-  Torrents.getTorrents().then(function(torrents) {
-    console.log('refreshing');
-    $scope.casts = torrents.data;
-  });
+  var getThem = function() {
+    return Torrents.getTorrents().then(function(torrents) {
+      $scope.casts = torrents.data;
+      return torrents;
+    });
+  };
+
+  $scope.getTorrents = function() {
+    getThem().then(function() {
+      $interval(getThem, 5000);
+    });
+  };
 
   $scope.setMediaUrl = function(hash) {
     var url = 'http://' + $location.host() + ':' + $location.port() + '/api/castTorrent/' + hash;
     console.log('da url', url);
     loadMedia(url);
   };
+
   var ModalInstanceCtrl = function ($scope, $modalInstance, $upload) {
 
     var upload = function() {
