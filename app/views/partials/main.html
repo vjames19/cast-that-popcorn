@@ -1,44 +1,41 @@
 <div ng-include="'partials/navbar'"></div>
-
-<!-- <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
-</div>
-
-<div class="row marketing">
-  <div ng-repeat="thing in awesomeThings">
-    <h4>{{thing.name}}</h4>
-    <p>{{thing.info}}</p>
-  </div>
-</div>
-
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
-</div> -->
-
-
 <div class="row">
    <div class="col-md-6">
      <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Player</h3>
+        <h3 class="panel-title">Media Player</h3>
       </div>
       <div class="panel-body">
-        I'm a player
+        <button onclick="launchApp()">Launch app</button>
+        <button onclick="stopApp()">Stop app</button>
+        <br>
+        <button onclick="loadMedia()">Load media</button>
+        <button id="playpauseresume" onclick="playMedia()">Play</button>
+        <button onclick="stopMedia()">Stop media</button>
       </div>
     </div>
   </div>
   <div class="col-md-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Credentials</h3>
+        <h3 class="panel-title">Enter your BOX Credentials</h3>
       </div>
       <div class="panel-body">
-        Put yo damn credentials
+        <form role="form">
+          <div class="form-group">
+            <!-- <label for="username" class="col-sm-2 control-label">Email</label> -->
+              <input type="text" class="form-control" id="username" placeholder="Username">
+          </div>
+          <div class="form-group">
+            <!-- <label for="password" class="col-sm-2 control-label">Password</label> -->
+              <input type="password" class="form-control" id="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <!-- <label for="url" class="col-sm-2 control-label">Box Url</label> -->
+              <input type="url" class="form-control" id="url" placeholder="Box url">
+          </div>
+          <button type="submit" class="btn btn-info btn-lg btn-block">Get them Casts</button>
+        </form>
       </div>
     </div>
   </div>
@@ -67,7 +64,7 @@
             <td><progressbar class="progress-striped active" max="cast.completed" value="cast.size" type="success" animate="false"></progressbar</td>
             <td>
               <div style="text-align: center">
-                <button class="btn btn-success btn-lg"><i class="fa fa-expand fa-lg"></i></button>
+                <button class="btn btn-success btn-lg" ng-click="setMediaUrl(cast.hash)"><i class="fa fa-expand fa-lg"></i></button>
               </div>
           </td>
           </tr>

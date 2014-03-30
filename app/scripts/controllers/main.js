@@ -1,8 +1,9 @@
 'use strict';
-
+var g = this;
+console.log('the global', g);
 angular.module('castThatPopcornApp')
-.controller('MainCtrl', function ($scope, $modal, $interval, Torrents) {
-
+.controller('MainCtrl', function ($scope, $modal, $interval, $location, Torrents) {
+  $scope.user = {};
   $interval(function() {
     Torrents.getTorrents().then(function(torrents) {
       console.log('refreshing');
@@ -10,6 +11,12 @@ angular.module('castThatPopcornApp')
     });
   }, 5000);
 
+
+  $scope.setMediaUrl = function(hash) {
+    var url = 'http://' + $location.host() + ':' + $location.port() + '/api/castTorrent/' + hash;
+    console.log('da url', url);
+    loadMedia(url);
+  };
   var ModalInstanceCtrl = function ($scope, $modalInstance, $upload) {
 
     var upload = function() {
