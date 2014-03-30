@@ -5,6 +5,9 @@
     "express": "~3.4.3",
     "lodash": "~2.4.1",
     "ejs": "~0.8.4",
+    "request": "^2.34.0",
+    "xmlrpc": "^1.2.0",
+    "async": "^0.4.0",
     "stream-transcoder": "~0.0.3",
     "stream-body-parser": "~0.0.1"
   },
