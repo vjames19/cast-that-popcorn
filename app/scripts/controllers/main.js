@@ -1,14 +1,49 @@
 'use strict';
 
 angular.module('castThatPopcornApp')
-.controller('MainCtrl', function ($scope, $modal, $interval, $location, Torrents) {
+.controller('MainCtrl', function ($scope, $modal, $interval, $location, Torrents, RottenTomatoes) {
   $scope.user = {};
 
+  $scope.ratings = {};
+  var gotRatings = false;
   var getThem = function() {
     return Torrents.getTorrents().then(function(torrents) {
       $scope.casts = torrents.data;
+      if(!gotRatings) {
+        gotRatings = true;
+        $scope.casts.forEach(function(cast, index) {
+          $interval(function() {
+            RottenTomatoes.getRatingFor(cast.name).then(function(ratings) {
+              if(!ratings.data.critics_score) {
+                $scope.ratings[cast.hash] = {critics_score: -1};
+              } else {
+                $scope.ratings[cast.hash] = ratings.data;
+              }
+            });
+          }, index * 1000);
+        });
+      }
       return torrents;
     });
+  };
+
+  $scope.getTomatoeImage = function(hash) {
+    if($scope.ratings[hash] && $scope.ratings[hash].critics_score < 60) {
+      return 'Spilled';
+    } else {
+      return 'Fresh';
+    }
+  };
+
+  $scope.getCriticScore = function(hash) {
+    if($scope.ratings[hash]) {
+      var score = $scope.ratings[hash].critics_score;
+      if(score > -1) {
+        return score + '%';
+      }
+    }
+    return '-';
+
   };
 
   $scope.getTorrents = function() {

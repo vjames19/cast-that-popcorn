@@ -85,3 +85,13 @@ body {
 .custom-pointer {
   cursor: pointer;
 }
+
+.tomatoe {
+/*  width: 16px;
+  height: 16px;*/
+  width: 25%;
+}
+
+.movie-title {
+  font-size: 18px;
+}
