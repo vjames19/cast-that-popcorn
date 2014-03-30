@@ -4,7 +4,9 @@ angular.module('castThatPopcornApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'ui.bootstrap',
+  'angularFileUpload'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -15,6 +17,6 @@ angular.module('castThatPopcornApp', [
       .otherwise({
         redirectTo: '/'
       });
-      
+
     $locationProvider.html5Mode(true);
   });

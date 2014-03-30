@@ -1,6 +1,6 @@
 <div ng-include="'partials/navbar'"></div>
 
-<div class="jumbotron">
+<!-- <div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
@@ -11,11 +11,69 @@
 
 <div class="row marketing">
   <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p>
+    <h4>{{thing.name}}</h4>
+    <p>{{thing.info}}</p>
   </div>
 </div>
 
 <div class="footer">
   <p>♥ from the Yeoman team</p>
+</div> -->
+
+
+<div class="row">
+   <div class="col-md-6">
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Player</h3>
+      </div>
+      <div class="panel-body">
+        I'm a player
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Credentials</h3>
+      </div>
+      <div class="panel-body">
+        Put yo damn credentials
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading clearfix">
+        <button class="btn btn-primary pull-right" ng-click="open()"><i class="fa fa-plus fa-lg"></i></button>
+        <h3 class="panel-title">Cast List</h3>
+      </div>
+      <div class="panel-body">
+                <!-- Table -->
+        <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Progress</th>
+            <th>Cast it</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="cast in casts">
+            <td>{{ cast.name }}</td>
+            <td><progressbar class="progress-striped active" max="cast.completed" value="cast.size" type="success" animate="false"></progressbar</td>
+            <td>
+              <div style="text-align: center">
+                <button class="btn btn-success btn-lg"><i class="fa fa-expand fa-lg"></i></button>
+              </div>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
 </div>

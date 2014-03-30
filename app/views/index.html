@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
-    <title></title>
+    <title>Cast that popcorn!</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -18,6 +18,8 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+
     <!-- endbuild -->
   </head>
   <body ng-app="castThatPopcornApp">
@@ -53,6 +55,9 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/ng-file-upload/angular-file-upload-shim.js"></script>
+    <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -60,6 +65,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/navbar.js"></script>
+        <script src="scripts/services/torrents.js"></script>
         <!-- endbuild -->
 </body>
 </html>
