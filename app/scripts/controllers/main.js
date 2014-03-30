@@ -1,16 +1,19 @@
 'use strict';
-var g = this;
-console.log('the global', g);
+
 angular.module('castThatPopcornApp')
 .controller('MainCtrl', function ($scope, $modal, $interval, $location, Torrents) {
   $scope.user = {};
-  $interval(function() {
-    Torrents.getTorrents().then(function(torrents) {
-      console.log('refreshing');
-      $scope.casts = torrents.data;
-    });
-  }, 5000);
+  // $interval(function() {
+  //   Torrents.getTorrents().then(function(torrents) {
+  //     console.log('refreshing');
+  //     $scope.casts = torrents.data;
+  //   });
+  // }, 5000);
 
+  Torrents.getTorrents().then(function(torrents) {
+    console.log('refreshing');
+    $scope.casts = torrents.data;
+  });
 
   $scope.setMediaUrl = function(hash) {
     var url = 'http://' + $location.host() + ':' + $location.port() + '/api/castTorrent/' + hash;

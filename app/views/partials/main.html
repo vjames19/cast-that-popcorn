@@ -6,12 +6,15 @@
         <h3 class="panel-title">Media Player</h3>
       </div>
       <div class="panel-body">
-        <button onclick="launchApp()">Launch app</button>
-        <button onclick="stopApp()">Stop app</button>
+        <div class="row">
+          <div class="col-md-6"><button onclick="launchApp()" class="btn btn-primary btn-lg btn-block">Launch app</button></div>
+          <div class="col-md-6"><button onclick="stopApp()" class="btn btn-primary btn-lg btn-block">Stop app</button></div>
+        </div>
         <br>
-        <button onclick="loadMedia()">Load media</button>
-        <button id="playpauseresume" onclick="playMedia()">Play</button>
-        <button onclick="stopMedia()">Stop media</button>
+        <div class="row">
+          <div class="col-md-6"><button id="playpauseresume" onclick="playMedia()" class="btn btn-success btn-lg btn-block"><i class="fa fa-play"></i></button></div>
+          <div class="col-md-6"><button onclick="stopMedia()" class="btn btn-danger btn-lg btn-block"><i class="fa fa-stop"></i></button></div>
+        </div>
       </div>
     </div>
   </div>
@@ -64,7 +67,9 @@
             <td><progressbar class="progress-striped active" max="cast.completed" value="cast.size" type="success" animate="false"></progressbar</td>
             <td>
               <div style="text-align: center">
-                <button class="btn btn-success btn-lg" ng-click="setMediaUrl(cast.hash)"><i class="fa fa-expand fa-lg"></i></button>
+                <!-- <button class="btn btn-success btn-lg" ng-click="setMediaUrl(cast.hash)"><i class="fa fa-expand fa-lg"></i></button> -->
+                <button class="btn btn-default"><img src="http://cdn.androidpolice.com/wp-content/uploads/2013/08/nexusae0_chromecast-icon.png" class="cast"/></button>
+                <!-- <img src="http://cdn.androidpolice.com/wp-content/uploads/2013/08/nexusae0_chromecast-icon.png" class="img-responsive custom-cursor" style="width: 35%; height: 35%;"alt="" ng-click="setMediaUrl(cast.hash)"> -->
               </div>
           </td>
           </tr>
